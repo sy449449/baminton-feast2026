@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炫庄解憂飆歌爽吃團 - 數位海報</title>
+<style>
+    :root {
+        --bg-color: #111111;
+        --neon-pink: #ff66cc; 
+        --neon-blue: #00e5ff; 
+        --neon-green: #39ff14; 
+        --neon-yellow: #fffb00;
+        --neon-red: #ff3333; 
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+        background-color: var(--bg-color);
+        /* 滿版羽毛球與肉塊印花底圖，加入 fixed 讓背景滾動時保持靜止 */
+        background-image: 
+            linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.85)), /* 加深遮罩，確保文字易讀 */
+            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><g filter="url(%23neon-glow)"><path d="M10,10 A5,5 0 0,1 20,10 A5,5 0 0,1 10,10 Z M15,10 V20 L12,20 V25 L18,25 V20 Z" fill="%2339ff14" opacity="0.3"/><ellipse cx="15" cy="15" rx="5" ry="3" fill="none" stroke="%2339ff14" stroke-width="0.5" opacity="0.4"/><path d="M40,10 Q50,10 50,20 Q50,30 40,30 Q30,30 30,20 Q30,10 40,10 Z" fill="none" stroke="%23ff3333" stroke-width="1" opacity="0.3"/><path d="M35,15 L45,15 M35,20 L45,20 M35,25 L45,25" stroke="%23ff3333" stroke-width="0.5" opacity="0.4"/></g><defs><filter id="neon-glow"><feGaussianBlur stdDeviation="1.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs></svg>');
+        background-repeat: repeat;
+        background-size: 60px 60px;
+        background-attachment: fixed;
+        color: #fff;
+    }
+
+    /* 海報主體容器，限制最大寬度以適應手機與電腦 */
+    .poster-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 30px; /* 區塊間距 */
+    }
+
+    /* 標題與日期 */
+    h1 {
+        margin: 0;
+        font-size: clamp(24px, 6vw, 32px); /* 響應式字體大小 */
+        font-weight: bold;
+        line-height: 1.4;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 40px var(--neon-pink);
+    }
+
+    .date-badge {
+        display: inline-block;
+        background: transparent;
+        color: var(--neon-yellow);
+        border: 2px solid var(--neon-yellow);
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        box-shadow: 0 0 10px var(--neon-yellow), inset 0 0 10px var(--neon-yellow);
+        text-shadow: 0 0 5px var(--neon-yellow);
+        margin: 10px auto;
+    }
+
+    /* 內容區塊共用設定 */
+    .content-box {
+        text-align: left;
+        color: #eee;
+        font-size: 15px;
+        line-height: 1.8;
+        background-color: rgba(0, 0, 0, 0.6); /* 增加背景不透明度提升易讀性 */
+        backdrop-filter: blur(5px); /* 背景模糊特效 */
+        border: 2px solid var(--neon-blue);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px var(--neon-blue), inset 0 0 15px rgba(0, 229, 255, 0.2);
+    }
+
+    .content-box.pink-theme {
+        border-color: var(--neon-pink);
+        box-shadow: 0 0 15px var(--neon-pink), inset 0 0 15px rgba(255, 102, 204, 0.2);
+    }
+
+    .content-box h2 {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+    .blue-glow {
+        color: var(--neon-blue);
+        text-shadow: 0 0 8px var(--neon-blue);
+    }
+
+    .pink-glow {
+        color: var(--neon-pink);
+        text-shadow: 0 0 8px var(--neon-pink);
+    }
+
+    .content-box ol {
+        margin: 0;
+        padding-left: 25px;
+    }
+    
+    .content-box li {
+        margin-bottom: 12px;
+    }
+
+    .highlight {
+        color: var(--neon-yellow);
+        font-weight: bold;
+    }
+
+    /* 菜單區塊 */
+    .menu-section {
+        margin-top: 20px;
+    }
+
+    .menu-category {
+        color: var(--neon-green);
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        text-shadow: 0 0 8px var(--neon-green);
+        border-bottom: 1px dashed var(--neon-green);
+        padding-bottom: 5px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+        margin-bottom: 8px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-note {
+        font-size: 13px;
+        color: var(--neon-yellow);
+        font-weight: normal;
+        margin-top: 2px;
+    }
+
+    /* 頁腳 */
+    .footer-wish {
+        color: var(--neon-pink);
+        font-weight: bold;
+        text-shadow: 0 0 8px var(--neon-pink);
+        font-size: 18px;
+        margin-top: 20px;
+        padding-bottom: 40px;
+    }
+</style>
+</head>
+<body>
+
+<div class="poster-container">
+    
+    <!-- 標題與時間 -->
+    <header>
+        <h1>🍻 羽肉同行週一不憂鬱！<br>炫庄解憂飆歌爽吃團 🎤</h1>
+        <div class="date-badge">2026. 10. 05 ─ 歡迎入座</div>
+        <div class="date-badge">地點：炫庄桶仔雞</div>
+        <div class="date-badge">台北市中山區長安東路二段31號</div>
+        <div class="date-badge">時間：晚上七點</div>
+    </header>
+    
+    <!-- 貼心提醒 -->
+    <section class="content-box">
+        <h2 class="blue-glow">💡 專屬包廂貼心小叮嚀 💡</h2>
+        <ol>
+            <li>獨立歡唱 KTV 空間，門已關好，請盡情點歌飆高音！</li>
+            <li>靈魂大菜「<span class="highlight">招牌桶仔雞</span>」現烤需 50 分鐘，主辦人已搶先預訂，請期待皮脆肉嫩的美味！</li>
+            <li>招牌螃蟹米粉鍋「<span class="highlight">湯頭可免費無限續加</span>」，喝酒唱歌之餘，記得多喝兩碗熱湯超暖胃！</li>
+        </ol>
+    </section>
+
+    <!-- 菜單 -->
+    <section class="content-box menu-section">
+        <h2 class="blue-glow">✨ 今日特選 ‧ 澎湃饗宴菜單 ✨</h2>
+        
+        <div class="menu-category">🍗【 經 典 招 牌 主 打 】</div>
+        <div class="menu-item">
+            招牌桶仔雞 
+            <span class="menu-note">(精華雞油記得拌飯！)</span>
+        </div>
+        <div class="menu-item">
+            招牌螃蟹米粉鍋 
+            <span class="menu-note">(暖胃解酒神物，可續湯)</span>
+        </div>
+
+        <div class="menu-category">🦑【 下 酒 海 鮮 與 肉 類 】</div>
+        <div class="menu-item">金沙中卷 ‧ 脆皮肥腸 ‧ 蒜香豬腳</div>
+
+        <div class="menu-category">🔥【 鑊 氣 精 選 熱 炒 】</div>
+        <div class="menu-item">客家小炒 ‧ 宮保皮蛋....etc.</div>
+
+        <div class="menu-category">🥬【 清 爽 解 膩 時 蔬 】</div>
+        <div class="menu-item">炒水蓮 ‧ 櫻花蝦高麗菜</div>
+    </section>
+
+    <!-- 飲品專區 (粉色強調框) -->
+    <section class="content-box pink-theme">
+        <h2 class="pink-glow">🍻【 歡 唱 飲 品 專 區 】</h2>
+        <div style="text-align: center; font-size: 16px; font-weight: bold; margin-bottom: 10px;">
+            冰箱內各式冷飲、金牌18天生啤酒，請自取！
+        </div>
+        <div style="text-align: center; font-size: 13px; color: #ccc;">
+            (※ 飲酒過量有礙健康 ‧ 喝酒請勿開車)
+        </div>
+    </section>
+
+    <!-- 結尾祝福 -->
+    <div class="footer-wish">🎉 祝大家今晚吃得澎湃、唱得過癮、聊得開心！ 🎉</div>
+
+</div>
+
+</body>
+</html>
